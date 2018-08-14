@@ -4,11 +4,30 @@
 
   <!--CountDown-->
   <style>
-    #clockdiv{font-family:sans-serif;color:#FF0000;display:inline-block;font-weight:100;text-align:center;font-size:16px}
-    #clockdiv > div{padding:5px;border-radius:0px;background:#000000;display:inline-block}
-    #clockdiv div > span{padding:5
-    px;border-radius:0px;background:#000000;display:inline-block}
-    .smalltext{padding-top:0px;font-size:12px}
+    #clockdiv {
+      font-family: sans-serif;
+      color:#FF0000;
+      display:inline-block;
+      font-weight:100;
+      text-align:center;
+      font-size:16px
+    }
+    #clockdiv > div {
+      padding:5px;
+      border-radius:0px;
+      background:#000000;
+      display:inline-block
+    }
+    #clockdiv div > span {
+      padding:5px;
+      border-radius:0px;
+      background:#000000;
+      display:inline-block
+    }
+    .smalltext {
+      padding-top:0px;
+      font-size:12px
+    }
   </style>
 
   <div id="clockdiv">
@@ -31,7 +50,7 @@
   </div>
 
   <script>
-    function getTimeRemaining(endtime){
+    function getTimeRemaining(endtime) {
       var t = Date.parse(endtime) - Date.parse(new Date());
       var seconds = Math.floor( (t/1000) % 60 );
       var minutes = Math.floor( (t/1000/60) % 60 );
@@ -44,9 +63,9 @@
         'minutes': minutes,
         'seconds': seconds
       };
-    }
+    };
 
-    function initializeClock(id, endtime){
+    function initializeClock(id, endtime) {
       var clock = document.getElementById(id);
       var daysSpan = clock.querySelector('.days');
       var hoursSpan = clock.querySelector('.hours');
@@ -65,11 +84,11 @@
           clearInterval(timeinterval);
                       $("#clockdiv").hide();
         }
-      }
+      };
 
       updateClock();
       var timeinterval = setInterval(updateClock,1000);
-    }
+    };
 
     var deadline = 'november 20 2017 23:59:59 UTC-0800';
     initializeClock('clockdiv', deadline);
